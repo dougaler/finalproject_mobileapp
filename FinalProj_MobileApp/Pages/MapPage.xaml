@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProj_MobileApp.Pages.MapPage"
+             Title="MapPage">
+    <Grid RowDefinitions="Auto, *">
+        <Frame Grid.Row="0" BackgroundColor="MediumPurple" Padding="10">
+            <Label Text="Crimes List" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+        </Frame>
+        <CollectionView Grid.Row="1" x:Name="LVCrimes" SelectionMode="Single" SelectionChanged="LVCrimes_SelectionChanged" IsGrouped="True">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <Label FontSize="20" FontAttributes="Bold" TextColor="AntiqueWhite" BackgroundColor="Gray" Text="{Binding GroupName}"/>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Margin="20" Padding="10">
+                        <Label FontSize="Medium" Text="{Binding Title}"/>
+                        <Label FontSize="Medium" Text="{Binding Date}"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        </Grid>
+</ContentPage>

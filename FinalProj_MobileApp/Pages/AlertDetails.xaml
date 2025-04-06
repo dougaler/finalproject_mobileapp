@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProj_MobileApp.Pages.AlertDetails"
+             Title="AlertDetails">
+    <Grid RowDefinitions="Auto, Auto,*,*,*" Padding="20">
+        <Image Grid.Row="0" x:Name="ContactsImage"/>
+        <Label Grid.Row="1" x:Name="LblTitle" FontSize="Title"/>
+        <Label Grid.Row="2" x:Name="LblDescription" FontSize="Subtitle"/>
+        <Label Grid.Row="3" x:Name="LblDate" FontSize="Subtitle"/>
+        <Label Grid.Row="4" x:Name="LblSeverity" FontSize="Subtitle"/>
+        <Label Grid.Row="4" x:Name="LblStatus" FontSize="Subtitle"/>
+    </Grid>
+</ContentPage>
