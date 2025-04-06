@@ -86,13 +86,13 @@ public partial class MapPage : ContentPage
 	}
 
     protected override async void OnAppearing() {
-        //Places a pin on your current location, but honestly this isn't needed
+        //Centers map on current positon
         base.OnAppearing();
         var location = await Geolocation.GetLocationAsync();
-        map.MoveToRegion(MapSpan.FromCenterAndRadius(location, Distance.FromMiles(10)));
+        map.MoveToRegion(MapSpan.FromCenterAndRadius(location, Distance.FromMiles(.5)));
 
 
-		//Getting crime list from DB (unimplemented)
+		//Getting crime list from DB (unimplemented currently), instead pulls from CrimeNotifs
 		//Task.Run(async () => Lv.ItemsSource = await _dbService.GetCrimes());
 		foreach (var i in CrimeNotifs) {
 			foreach (var pin in i) {
@@ -101,11 +101,14 @@ public partial class MapPage : ContentPage
 		}
 
 	}
-    //Broken, currently no way (or I can't think of one) to find the CrimeNotification object based on the pin
+    //Sends you to activeWatch/Crime Details Page when you click on a pin
+	//Currently doesn't work since the pin being clicked is based on the Pin object and not the CrimeNotification object
+	//which is what is sent to the details page, not the Pin
+	// - Anthony
     private async void OnPinClicked(object sender, PinClickedEventArgs e) {
         Pin p = (Pin)sender;
-		CrimeNotification activeWatch;
-		//this doesn't actually send you there some reason, even if you could find the right crime notif
-        //await Navigation.PushAsync(new AlertDetails(activeWatch));
+		CrimeNotification activeWatch = new CrimeNotification(); //this is here to prevent an error, and is not intended functionally
+		//this doesn't send you to a new screen, OnPinClicked() may not be the right method for this feature
+        await Navigation.PushAsync(new AlertDetails(activeWatch));
     }
 }
