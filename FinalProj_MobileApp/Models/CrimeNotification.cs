@@ -1,4 +1,6 @@
-﻿public class CrimeNotification
+﻿using Microsoft.Maui.Controls.Maps;
+
+public class CrimeNotification
 {
     public int Id { get; set; }
     public string Title { get; set; }
@@ -11,14 +13,12 @@
     public double Longitude { get; set; }
 
     //Uncomment once Map Api is injected
-    //public Pin GetMapPin()
-    //{
-    //    return new Pin
-    //    {
-    //        Label = Title,
-    //        Address = LocationName,
-    //        Location = new Location(Latitude, Longitude),
-    //        Type = PinType.Place
-    //    };
-    //}
+    public Pin GetMapPin() {
+        return new Pin {
+            Label = Title,
+            Address = LocationName,
+            Location = new Location(Latitude, Longitude),
+            Type = PinType.Place
+        };
+    }
 }

@@ -1,5 +1,7 @@
 using FinalProj_MobileApp.Models.ViewModels;
 using FinalProj_MobileApp.Models;
+using Microsoft.Maui.Controls.Maps;
+using Microsoft.Maui.Maps;
 
 namespace FinalProj_MobileApp.Pages;
 
@@ -21,7 +23,7 @@ public partial class MapPage : ContentPage
 				Severity = "Critical",
 				Status = "Active Investigation",
 				Latitude = 39.1320,
-				Longitude = -84.5165
+				Longitude = -84.5165,
 			},
 			new CrimeNotification
 			{
@@ -82,4 +84,28 @@ public partial class MapPage : ContentPage
 		Navigation.PushAsync(new AlertDetails(selectedItems));
 		((CollectionView)sender).SelectedItems = null;
 	}
+
+    protected override async void OnAppearing() {
+        //Places a pin on your current location, but honestly this isn't needed
+        base.OnAppearing();
+        var location = await Geolocation.GetLocationAsync();
+        map.MoveToRegion(MapSpan.FromCenterAndRadius(location, Distance.FromMiles(10)));
+
+
+		//Getting crime list from DB (unimplemented)
+		//Task.Run(async () => Lv.ItemsSource = await _dbService.GetCrimes());
+		foreach (var i in CrimeNotifs) {
+			foreach (var pin in i) {
+				map.Pins.Add(pin.GetMapPin());
+			}
+		}
+
+	}
+    //Broken, currently no way (or I can't think of one) to find the CrimeNotification object based on the pin
+    private async void OnPinClicked(object sender, PinClickedEventArgs e) {
+        Pin p = (Pin)sender;
+		CrimeNotification activeWatch;
+		//this doesn't actually send you there some reason, even if you could find the right crime notif
+        //await Navigation.PushAsync(new AlertDetails(activeWatch));
+    }
 }
