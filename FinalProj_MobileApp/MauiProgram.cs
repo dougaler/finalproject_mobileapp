@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Controls.Compatibility.Hosting;
+using Microsoft.Maui.Controls.Maps;
 
 namespace FinalProj_MobileApp
 {
@@ -13,7 +15,8 @@ namespace FinalProj_MobileApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+                .UseMauiMaps();
 
 #if DEBUG
     		builder.Logging.AddDebug();
