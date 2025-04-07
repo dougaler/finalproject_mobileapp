@@ -5,10 +5,16 @@
              x:Class="FinalProj_MobileApp.Pages.MapPage"
              Title="MapPage">
     <Grid RowDefinitions="Auto, *, *">
+        
+        <!--First grid row-->
         <Frame Grid.Row="0" BackgroundColor="MediumPurple" Padding="10">
             <Label Text="Crimes List" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
         </Frame>
+
+        <!--Second grid row-->
         <maps:Map Grid.Row="1" x:Name="map"/>
+
+        <!--Third grid row-->
         <CollectionView Grid.Row="2" x:Name="LVCrimes" SelectionMode="Single" SelectionChanged="LVCrimes_SelectionChanged" IsGrouped="True">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" Span="2"/>
@@ -29,5 +35,5 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        </Grid>
+    </Grid>
 </ContentPage>

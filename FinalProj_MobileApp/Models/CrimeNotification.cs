@@ -12,7 +12,7 @@ public class CrimeNotification
     public double Latitude { get; set; }
     public double Longitude { get; set; }
 
-    //Uncomment once Map Api is injected
+    //Returns a Pin with information set from the CrimeNotification
     public Pin GetMapPin() {
         return new Pin {
             Label = Title,

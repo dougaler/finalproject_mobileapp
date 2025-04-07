@@ -11,72 +11,15 @@ public partial class MapPage : ContentPage
 	public MapPage()
 	{
 		InitializeComponent();
-		CrimeNotifs.Add(new CrimeGroups("Crimes", new List<CrimeNotification>
-		{
-			new CrimeNotification
-			{
-				Id = 1,
-				Title = "Gunshot Wound Reported",
-				Description = "Police responding for report of a person with a gunshot wound. If safe, stay at your location. Be observant/take action as needed.",
-				LocationName = "Sigma Sigma Commons",
-				Date = new DateTime(2025, 4, 3, 20, 10, 0),
-				Severity = "Critical",
-				Status = "Active Investigation",
-				Latitude = 39.1320,
-				Longitude = -84.5165,
-			},
-			new CrimeNotification
-			{
-				Id = 2,
-				Title = "Emergency at CVS - Taft & Vine",
-				Description = "Police responding to emergency reported at CVS - Taft and Vine. If safe, stay at your location. Beobservanttake action as needed.",
-				LocationName = "CVS - Taft and Vine",
-				Date = new DateTime(2025, 4, 2, 18, 45, 0),
-				Severity = "High",
-				Status = "Responding",
-				Latitude = 39.1298,
-				Longitude = -84.5099
-			},
-			new CrimeNotification
-			{
-				Id = 3,
-				Title = "Shots Fired - Stratford Ave",
-				Description = "Police on scene of emergency after reports of shots fired near 2725 Stratford. Avoid the area.",
-				LocationName = "2725 Stratford Ave",
-				Date = new DateTime(2025, 3, 30, 23, 15, 0),
-				Severity = "Critical",
-				Status = "Scene Cleared",
-				Latitude = 39.1350,
-				Longitude = -84.5042
-			},
-			new CrimeNotification
-			{
-				Id = 4,
-				Title = "Emergency Reported - Bishop St.",
-				Description = "Police responding to emergency reported on 3239 Bishop. If safe, stay at your location. Be observanttakeaction as needed.",
-				LocationName = "3239 Bishop St.",
-				Date = new DateTime(2025, 3, 29, 21, 50, 0),
-				Severity = "High",
-				Status = "Investigation Ongoing",
-				Latitude = 39.1329,
-				Longitude = -84.5180
-			},
-			new CrimeNotification
-			{
-				Id = 5,
-				Title = "Suspicious Activity - Langsam Library",
-				Description = "Suspicious individual seen loitering outside the Langsam Library. Officers dispatched, area searched.",
-				LocationName = "Langsam Library",
-				Date = new DateTime(2025, 3, 28, 17, 25, 0),
-				Severity = "Medium",
-				Status = "Cleared",
-				Latitude = 39.1315,
-				Longitude = -84.5151
-			}}));
+
+		//Currently adds crimes manually, but in the future the CrimeNotifs item will be populated by DB items
+		CrimeNotifs.Add(new CrimeGroups("Crimes", CrimeNotificationService.GetMockNotifications()));
+
+		//Fills the ListView on the bottom of the page to all the crime objects
 		LVCrimes.ItemsSource = CrimeNotifs;
 	}
 
-
+	//Sends you to AlertDetails for more details on the crime
 	private void LVCrimes_SelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
 		var selectedItems = e.CurrentSelection.FirstOrDefault() as CrimeNotification;
@@ -85,6 +28,7 @@ public partial class MapPage : ContentPage
 		((CollectionView)sender).SelectedItems = null;
 	}
 
+	//Populates the map with pins for all of the crimes.
     protected override async void OnAppearing() {
         //Centers map on current positon
         base.OnAppearing();
@@ -92,8 +36,7 @@ public partial class MapPage : ContentPage
         map.MoveToRegion(MapSpan.FromCenterAndRadius(location, Distance.FromMiles(.5)));
 
 
-		//Getting crime list from DB (unimplemented currently), instead pulls from CrimeNotifs
-		//Task.Run(async () => Lv.ItemsSource = await _dbService.GetCrimes());
+		//Pulling location from list of crimes and adding to map
 		foreach (var i in CrimeNotifs) {
 			foreach (var pin in i) {
 				map.Pins.Add(pin.GetMapPin());
@@ -101,7 +44,7 @@ public partial class MapPage : ContentPage
 		}
 
 	}
-    //Sends you to activeWatch/Crime Details Page when you click on a pin
+    //Sends you to AlertDetails when you click on a pin
 	//Currently doesn't work since the pin being clicked is based on the Pin object and not the CrimeNotification object
 	//which is what is sent to the details page, not the Pin
 	// - Anthony
