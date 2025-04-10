@@ -12,8 +12,14 @@ namespace FinalProj_MobileApp.DB
     {
         [PrimaryKey, AutoIncrement]
         [Column("id")] public int Id { get; set; }
-        [Column("crimeType")] public string CrimeType { get; set; }
-        [Column("crimeLocation")] public string CrimeLocation { get; set; }
-        [Column("crimeStatus")] public bool CrimeStatus { get; set; }
+        [Column("title")] public string Title { get; set; }
+        [Column("descritpion")] public string Description { get; set; }
+        [Column("locationName")] public string LocationName { get; set; }
+        [Column("date")] public DateTime Date { get; set; }
+        [Column("severity")] public string Severity { get; set; }
+        [Column("status")] public string Status { get; set; }
+        [Column("latitude")] public double Latitude { get; set; }
+        [Column("longitude")] public double Longitude { get; set; }
+
     }
 }
