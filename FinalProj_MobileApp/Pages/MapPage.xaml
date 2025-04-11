@@ -3,12 +3,13 @@
              xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinalProj_MobileApp.Pages.MapPage"
-             Title="MapPage">
+             Title="MapPage"
+             NavigationPage.HasNavigationBar="False">
     <Grid RowDefinitions="Auto, *, *">
         
         <!--First grid row-->
-        <Frame Grid.Row="0" BackgroundColor="MediumPurple" Padding="10">
-            <Label Text="Crimes List" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+        <Frame Grid.Row="0" BackgroundColor="#e80424" Padding="10">
+            <Label Text="UC CRIME MAP" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="White"/>
         </Frame>
 
         <!--Second grid row-->
@@ -17,20 +18,24 @@
         <!--Third grid row-->
         <CollectionView Grid.Row="2" x:Name="LVCrimes" SelectionMode="Single" SelectionChanged="LVCrimes_SelectionChanged" IsGrouped="True">
             <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="2"/>
+                <GridItemsLayout Orientation="Vertical" Span="1"/>
             </CollectionView.ItemsLayout>
 
             <CollectionView.GroupHeaderTemplate>
                 <DataTemplate>
-                    <Label FontSize="20" FontAttributes="Bold" TextColor="AntiqueWhite" BackgroundColor="Gray" Text="{Binding GroupName}"/>
+                    <Label FontSize="20" FontAttributes="Bold" TextColor="White" BackgroundColor="Gray" Text="{Binding GroupName}"/>
                 </DataTemplate>
             </CollectionView.GroupHeaderTemplate>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <VerticalStackLayout Margin="20" Padding="10">
-                        <Label FontSize="Medium" Text="{Binding Title}"/>
-                        <Label FontSize="Medium" Text="{Binding Date}"/>
+                    <VerticalStackLayout Margin="5" Padding="5">
+                        <Border Padding="5" Margin="5">
+                            <Grid RowDefinitions="auto,*" Padding="10" ColumnSpacing="10" VerticalOptions="Center">
+                                <Label Grid.Row="0" FontSize="Medium" Text="{Binding Title}"/>
+                                <Label Grid.Row="1" FontSize="Medium" Text="{Binding Date}"/>
+                            </Grid>
+                        </Border>
                     </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
