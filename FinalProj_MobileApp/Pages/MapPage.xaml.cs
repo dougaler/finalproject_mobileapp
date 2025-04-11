@@ -25,7 +25,7 @@ public partial class MapPage : ContentPage
 		var selectedItems = e.CurrentSelection.FirstOrDefault() as CrimeNotification;
 		if (selectedItems == null) return;
 		Navigation.PushAsync(new AlertDetails(selectedItems));
-		((CollectionView)sender).SelectedItems = null;
+		((CollectionView)sender).SelectedItem = null;
 	}
 
 	//Populates the map with pins for all of the crimes.
