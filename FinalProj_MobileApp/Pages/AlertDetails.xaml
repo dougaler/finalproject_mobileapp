@@ -4,20 +4,41 @@
              x:Class="FinalProj_MobileApp.Pages.AlertDetails"
              xmlns:vm="clr-namespace:FinalProj_MobileApp.Models.ViewModels"
              Title="AlertDetails">
-    <TableView Intent="Data">
-        <TableRoot>
-            <TableSection x:Name="LblTitle">
-                <TextCell x:Name="LblDate" Text="Date: "/>
-                <TextCell x:Name="LblSeverity" Text="Severity: "/>
-                <TextCell x:Name="LblStatus" Text="Status: "/>
-                <ViewCell>
-                    <VerticalStackLayout>
-                        <Label Text="Description: "/>
-                        <Editor x:Name="LblDescription" />
-                    </VerticalStackLayout>
-                </ViewCell>
-                <!--<TextCell x:Name="LblDescription" Text="Description: " />-->
-            </TableSection>
-        </TableRoot>
-    </TableView>
+    <Grid RowDefinitions="Auto, *">
+        <!--First grid row-->
+        <Frame Grid.Row="0" BackgroundColor="#e80424" Padding="10" CornerRadius="0">
+            <Label Text="UC CRIME MAP" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="White"/>
+        </Frame>
+        <TableView Intent="Data" Grid.Row="1" HasUnevenRows="True" >
+            <TableRoot>
+                <TableSection x:Name="LblTitle" TextColor="Black" >
+                    <ViewCell>
+                        <Grid RowDefinitions="Auto, *" Padding="17, 10,17,10">
+                            <Label Grid.Row="0" Text="Date: " TextColor="Black" />
+                            <Label Grid.Row="1" x:Name="LblDate" TextColor="Gray" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid RowDefinitions="Auto, *" Padding="17,10,17,10">
+                            <Label Grid.Row="0" Text="Severity: " TextColor="Black" />
+                            <Label Grid.Row="1" x:Name="LblSeverity" TextColor="Gray" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid RowDefinitions="Auto, *" Padding="17,10,17,10">
+                            <Label Grid.Row="0" Text="Status: " TextColor="Black" />
+                            <Label Grid.Row="1" x:Name="LblStatus" TextColor="Gray" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid RowDefinitions="Auto, *" Padding="17,10,17,10">
+                            <Label Grid.Row="0" Text="Description: " TextColor="Black" />
+                            <Label Grid.Row="1" x:Name="LblDescription" TextColor="Gray" />
+                        </Grid>
+                    </ViewCell>
+                    <!--<TextCell x:Name="LblDescription" Text="Description: " />-->
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </Grid>
 </ContentPage>

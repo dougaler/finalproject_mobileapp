@@ -10,9 +10,9 @@ public partial class AlertDetails : ContentPage
 		InitializeComponent();
 		LblTitle.Title = item.Title;
 		LblDescription.Text = item.Description;
-		LblDate.Detail = item.Date.ToString("MM/dd/yyyy");
-		LblSeverity.Detail = item.Severity;
-		LblStatus.Detail = item.Status;
+		LblDate.Text = item.Date.ToString("MM/dd/yyyy");
+		LblSeverity.Text = item.Severity;
+		LblStatus.Text = item.Status;
 
 
 	}

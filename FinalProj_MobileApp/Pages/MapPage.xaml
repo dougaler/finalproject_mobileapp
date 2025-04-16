@@ -6,12 +6,11 @@
              Title="MapPage"
              NavigationPage.HasNavigationBar="False">
     <Grid RowDefinitions="Auto, *, *">
-        
+
         <!--First grid row-->
         <Frame Grid.Row="0" BackgroundColor="#e80424" Padding="10" CornerRadius="0">
-            <Label Text="UC CRIME MAP" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="White"/>
+            <Label Text="UC CRIME MAP" FontSize="30" HorizontalTextAlignment="Center" TextColor="White" FontFamily="Univers"/>
         </Frame>
-
         <!--Second grid row-->
         <maps:Map Grid.Row="1" x:Name="map"/>
 
@@ -23,7 +22,7 @@
 
             <CollectionView.GroupHeaderTemplate>
                 <DataTemplate>
-                    <Label FontSize="20" FontAttributes="Bold" TextColor="White" BackgroundColor="Gray" Text="Details"/>
+                    <Label FontSize="Small" FontAttributes="Bold" TextColor="White" BackgroundColor="Gray" Text="Details" Padding="10,5,10,5"/>
                 </DataTemplate>
             </CollectionView.GroupHeaderTemplate>
 
@@ -31,9 +30,9 @@
                 <DataTemplate>
                     <VerticalStackLayout>
                         <Border Padding="5">
-                            <Grid RowDefinitions="auto,*" Padding="10" ColumnSpacing="10" VerticalOptions="Center">
-                                <Label Grid.Row="0" FontSize="Medium" Text="{Binding Title}"/>
-                                <Label Grid.Row="1" FontSize="Medium" Text="{Binding Date}"/>
+                            <Grid RowDefinitions="auto,*" Padding="5" RowSpacing="0" VerticalOptions="Center">
+                                <Label Grid.Row="0" FontSize="Small" Text="{Binding Title}"/>
+                                <Label Grid.Row="1" FontSize="Small" Text="{Binding Date}"/>
                             </Grid>
                         </Border>
                     </VerticalStackLayout>
