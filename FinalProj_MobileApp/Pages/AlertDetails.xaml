@@ -10,7 +10,13 @@
                 <TextCell x:Name="LblDate" Text="Date: "/>
                 <TextCell x:Name="LblSeverity" Text="Severity: "/>
                 <TextCell x:Name="LblStatus" Text="Status: "/>
-                <TextCell x:Name="LblDescription" Text="Description: "/>
+                <ViewCell>
+                    <VerticalStackLayout>
+                        <Label Text="Description: "/>
+                        <Editor x:Name="LblDescription" />
+                    </VerticalStackLayout>
+                </ViewCell>
+                <!--<TextCell x:Name="LblDescription" Text="Description: " />-->
             </TableSection>
         </TableRoot>
     </TableView>

@@ -8,7 +8,7 @@
     <Grid RowDefinitions="Auto, *, *">
         
         <!--First grid row-->
-        <Frame Grid.Row="0" BackgroundColor="#e80424" Padding="10">
+        <Frame Grid.Row="0" BackgroundColor="#e80424" Padding="10" CornerRadius="0">
             <Label Text="UC CRIME MAP" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="White"/>
         </Frame>
 
@@ -23,14 +23,14 @@
 
             <CollectionView.GroupHeaderTemplate>
                 <DataTemplate>
-                    <Label FontSize="20" FontAttributes="Bold" TextColor="White" BackgroundColor="Gray" Text="{Binding GroupName}"/>
+                    <Label FontSize="20" FontAttributes="Bold" TextColor="White" BackgroundColor="Gray" Text="Details"/>
                 </DataTemplate>
             </CollectionView.GroupHeaderTemplate>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <VerticalStackLayout Margin="5" Padding="5">
-                        <Border Padding="5" Margin="5">
+                    <VerticalStackLayout>
+                        <Border Padding="5">
                             <Grid RowDefinitions="auto,*" Padding="10" ColumnSpacing="10" VerticalOptions="Center">
                                 <Label Grid.Row="0" FontSize="Medium" Text="{Binding Title}"/>
                                 <Label Grid.Row="1" FontSize="Medium" Text="{Binding Date}"/>
