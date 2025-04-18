@@ -4,10 +4,17 @@
              x:Class="FinalProj_MobileApp.Pages.ReportCrime"
              Title="ReportCrime">
     <VerticalStackLayout Padding="10" Spacing="10">
-        <Entry x:Name="name" Placeholder="Name" Text="Binding Stuff Place Holder"/>
-        <Entry x:Name="email" Placeholder="Email" Text="Binding Stuff Place Holder"/>
-        <Entry x:Name="phoneNumber" Placeholder="Phone Number" Text="Binding Stuff Place Holder"/>
-        <Entry x:Name="description" Placeholder="Description" Text="Binding Stuff Place Holder"/>
+        <Entry x:Name="entId" Placeholder="Id" Text="Binding Stuff Place Holder"/>
+        <Entry x:Name="entTitle" Placeholder="Title" Text="Binding Stuff Place Holder"/>
+        <Entry x:Name="entDescription" Placeholder="Description" Text="Binding Stuff Place Holder"/>
+        <Entry x:Name="entLocation" Placeholder="Location" Text="Binding Stuff Place Holder"/>
+        <Entry x:Name="entDate" Placeholder="Date" Text="Binding Stuff Place Holder"/>
+        <Entry x:Name="entSeverity" Placeholder="Severity" Text="Binding Stuff Place Holder"/>
+        <Entry x:Name="entStatus" Placeholder="Status" Text="Binding Stuff Place Holder"/>
+        <Entry x:Name="entLatitude" Placeholder="Latitude" Text="Binding Stuff Place Holder"/>
+        <Entry x:Name="entLongitude" Placeholder="Longitude" Text="Binding Stuff Place Holder"/>
+        <Button x:Name="btnSave" Text="Save" Clicked="btnSave_Clicked"/>
+
         <!-- <Button x:Name="addButton" Text="Add Contact" Command="{Binding AddCommand}"/> 
         <Button Text="View List" Clicked="Button_Clicked"/> -->
     </VerticalStackLayout>
