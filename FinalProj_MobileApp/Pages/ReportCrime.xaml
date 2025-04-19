@@ -4,17 +4,19 @@
              x:Class="FinalProj_MobileApp.Pages.ReportCrime"
              Title="ReportCrime">
     <VerticalStackLayout Padding="10" Spacing="10">
-        <Entry x:Name="entId" Placeholder="Id" Text="Binding Stuff Place Holder"/>
-        <Entry x:Name="entTitle" Placeholder="Title" Text="Binding Stuff Place Holder"/>
-        <Entry x:Name="entDescription" Placeholder="Description" Text="Binding Stuff Place Holder"/>
-        <Entry x:Name="entLocation" Placeholder="Location" Text="Binding Stuff Place Holder"/>
-        <Entry x:Name="entDate" Placeholder="Date" Text="Binding Stuff Place Holder"/>
-        <Entry x:Name="entSeverity" Placeholder="Severity" Text="Binding Stuff Place Holder"/>
-        <Entry x:Name="entStatus" Placeholder="Status" Text="Binding Stuff Place Holder"/>
-        <Entry x:Name="entLatitude" Placeholder="Latitude" Text="Binding Stuff Place Holder"/>
-        <Entry x:Name="entLongitude" Placeholder="Longitude" Text="Binding Stuff Place Holder"/>
+        <Entry x:Name="entId" Placeholder="Id" Text="" IsReadOnly="True"/>
+        <Entry x:Name="entTitle" Placeholder="Title"/>
+        <Entry x:Name="entDescription" Placeholder="Description"/>
+        <Entry x:Name="entLocation" Placeholder="Location"/>
+        <DatePicker x:Name="dpDate"/>
+        <Entry x:Name="entSeverity" Placeholder="Severity"/>
+        <Entry x:Name="entStatus" Placeholder="Status"/>
+        <Entry x:Name="entLatitude" Placeholder="Latitude"/>
+        <Entry x:Name="entLongitude" Placeholder="Longitude"/>
         <Button x:Name="btnSave" Text="Save" Clicked="btnSave_Clicked"/>
-
+        <Button x:Name="btnPull" Text="Pull Id" Clicked="btnPull_Clicked"/>
+        <Button x:Name="btnSeedMockData" Text="Seed Mock Data" Clicked="btnSeedMockData_Clicked" BackgroundColor="DarkRed" TextColor="White"/>
+        <Button x:Name="btnClearDatabase" Text="Clear All Records" Clicked="btnClearDatabase_Clicked" BackgroundColor="Black" TextColor="White"/>
         <!-- <Button x:Name="addButton" Text="Add Contact" Command="{Binding AddCommand}"/> 
         <Button Text="View List" Clicked="Button_Clicked"/> -->
     </VerticalStackLayout>
