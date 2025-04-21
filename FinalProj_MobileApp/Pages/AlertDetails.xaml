@@ -7,7 +7,10 @@
     <Grid RowDefinitions="Auto, *">
         <!--First grid row-->
         <Frame Grid.Row="0" BackgroundColor="#e80424" Padding="10" CornerRadius="0">
-            <Label Text="UC CRIME MAP" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="White"/>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Image HeightRequest="30" Source="uc_logo_white.png" Margin="10,0,10,0"/>
+                <Label Text="CRIME MAP" FontSize="30" HorizontalTextAlignment="Center" TextColor="White" FontFamily="OpenSans" FontAttributes="Bold"/>
+            </HorizontalStackLayout>
         </Frame>
         <TableView Intent="Data" Grid.Row="1" HasUnevenRows="True" >
             <TableRoot>

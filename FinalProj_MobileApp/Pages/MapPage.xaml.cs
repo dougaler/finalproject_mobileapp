@@ -54,4 +54,9 @@ public partial class MapPage : ContentPage
 		//this doesn't send you to a new screen, OnPinClicked() may not be the right method for this feature
         await Navigation.PushAsync(new AlertDetails(activeWatch));
     }
+
+	private void ImageButton_Clicked(object sender, EventArgs e)
+	{
+		Navigation.PushAsync(new ReportCrime());
+	}
 }
