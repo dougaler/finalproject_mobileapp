@@ -17,12 +17,15 @@
         <!--Second grid row-->
         <Grid Grid.Row="1">
             <maps:Map x:Name="map" ZIndex="1"/>
-            <ImageButton Margin="300,0,0,200" 
-                         ZIndex="2" 
+            <VerticalStackLayout Margin="300,0,0,200" 
+                                 ZIndex="2" >
+                <ImageButton 
                          HeightRequest="30" 
                          WidthRequest="30"                               
                          Source="phone_icon.svg"
                          Clicked="btnAddCrime_Clicked"/>
+                <Label Text="Report Crime" FontSize="10" HorizontalTextAlignment="Center" TextColor="Black" />
+            </VerticalStackLayout>
         </Grid>
         
         <!--Third grid row-->
