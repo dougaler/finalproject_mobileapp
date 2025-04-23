@@ -5,7 +5,7 @@
              x:Class="FinalProj_MobileApp.Pages.MapPage"
              Title="MapPage"
              NavigationPage.HasNavigationBar="False">
-    <Grid RowDefinitions="Auto, *, *, Auto">
+    <Grid RowDefinitions="Auto, *, *">
         
         <!--First grid row-->
         <Frame Grid.Row="0" BackgroundColor="#e80424" Padding="10" CornerRadius="0">
@@ -22,7 +22,7 @@
                          HeightRequest="30" 
                          WidthRequest="30"                               
                          Source="phone_icon.svg"
-                         Clicked="ImageButton_Clicked"/>
+                         Clicked="btnAddCrime_Clicked"/>
         </Grid>
         
         <!--Third grid row-->
@@ -50,7 +50,5 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <!--Fourth grid row-->
-        <Button Grid.Row="3" x:Name="btnAddCrime" Text="Add Crime" Clicked="btnAddCrime_Clicked"/>
     </Grid>
 </ContentPage>
