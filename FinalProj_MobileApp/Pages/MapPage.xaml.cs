@@ -28,6 +28,8 @@ public partial class MapPage : ContentPage
     {
         base.OnAppearing();
 
+        await _dbService.SeedMockDataIfEmpty();
+
         var location = await Geolocation.GetLocationAsync();
         map.MoveToRegion(MapSpan.FromCenterAndRadius(location, Distance.FromMiles(.5)));
 

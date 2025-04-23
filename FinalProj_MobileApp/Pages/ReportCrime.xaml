@@ -3,34 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinalProj_MobileApp.Pages.ReportCrime"
              Title="ReportCrime">
-    <!--First grid row-->
-    <Grid RowDefinitions="Auto, *, *" >
-
-        <!--First grid row-->
-        <Frame Grid.Row="0" BackgroundColor="#e80424" Padding="10" CornerRadius="0">
-            <HorizontalStackLayout HorizontalOptions="Center">
-                <Image HeightRequest="30" Source="uc_logo_white.png" Margin="10,0,10,0"/>
-                <Label Text="CRIME MAP" FontSize="30" HorizontalTextAlignment="Center" TextColor="White" FontFamily="OpenSans" FontAttributes="Bold"/>
-            </HorizontalStackLayout>
-        </Frame>
-        <!--Second grid row-->
-        <VerticalStackLayout Padding="10" Spacing="10" Grid.Row="1">
-            <Entry x:Name="entId" Placeholder="Id" Text="" IsReadOnly="True"/>
-            <Entry x:Name="entTitle" Placeholder="Title"/>
-            <Entry x:Name="entDescription" Placeholder="Description"/>
-            <Entry x:Name="entLocation" Placeholder="Location"/>
-            <DatePicker x:Name="dpDate"/>
-            <Entry x:Name="entSeverity" Placeholder="Severity"/>
-            <Entry x:Name="entStatus" Placeholder="Status"/>
-            <Grid ColumnDefinitions="*,*">
-                <Entry Grid.Column="0" x:Name="entLatitude" Placeholder="Latitude"/>
-                <Entry Grid.Column="1" x:Name="entLongitude" Placeholder="Longitude"/>
-            </Grid>
-            <Button x:Name="btnSave" Text="Save" Clicked="btnSave_Clicked"/>
-            <Button x:Name="btnPull" Text="Pull Id" Clicked="btnPull_Clicked"/>
-            <Button x:Name="btnSeedMockData" Text="Seed Mock Data" Clicked="btnSeedMockData_Clicked" BackgroundColor="DarkRed" TextColor="White"/>
-            <Button x:Name="btnClearDatabase" Text="Clear All Records" Clicked="btnClearDatabase_Clicked" BackgroundColor="Black" TextColor="White"/>
-            <!-- <Button x:Name="addButton" Text="Add Contact" Command="{Binding AddCommand}"/> 
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <Entry x:Name="entId" Placeholder="Id" Text="" IsReadOnly="True"/>
+        <Entry x:Name="entTitle" Placeholder="Title"/>
+        <Entry x:Name="entDescription" Placeholder="Description"/>
+        <Entry x:Name="entLocation" Placeholder="Location"/>
+        <DatePicker x:Name="dpDate"/>
+        <Entry x:Name="entSeverity" Placeholder="Severity"/>
+        <Entry x:Name="entStatus" Placeholder="Status"/>
+        <Entry x:Name="entLatitude" Placeholder="Latitude"/>
+        <Entry x:Name="entLongitude" Placeholder="Longitude"/>
+        <Button x:Name="btnSave" Text="Save" Clicked="btnSave_Clicked"/>
+        <Button x:Name="btnPull" Text="Pull Id" Clicked="btnPull_Clicked"/>
+        <!-- Button x:Name="btnSeedMockData" Text="Seed Mock Data" Clicked="btnSeedMockData_Clicked" BackgroundColor="DarkRed" TextColor="White"/ -->
+        <Button x:Name="btnClearDatabase" Text="Clear All Records" Clicked="btnClearDatabase_Clicked" BackgroundColor="Black" TextColor="White"/>
+        <!-- <Button x:Name="addButton" Text="Add Contact" Command="{Binding AddCommand}"/> 
         <Button Text="View List" Clicked="Button_Clicked"/> -->
         </VerticalStackLayout>
     </Grid>
