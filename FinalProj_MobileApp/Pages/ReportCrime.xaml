@@ -15,7 +15,7 @@
         <Entry x:Name="entLongitude" Placeholder="Longitude"/>
         <Button x:Name="btnSave" Text="Save" Clicked="btnSave_Clicked"/>
         <Button x:Name="btnPull" Text="Pull Id" Clicked="btnPull_Clicked"/>
-        <Button x:Name="btnSeedMockData" Text="Seed Mock Data" Clicked="btnSeedMockData_Clicked" BackgroundColor="DarkRed" TextColor="White"/>
+        <!-- Button x:Name="btnSeedMockData" Text="Seed Mock Data" Clicked="btnSeedMockData_Clicked" BackgroundColor="DarkRed" TextColor="White"/ -->
         <Button x:Name="btnClearDatabase" Text="Clear All Records" Clicked="btnClearDatabase_Clicked" BackgroundColor="Black" TextColor="White"/>
         <!-- <Button x:Name="addButton" Text="Add Contact" Command="{Binding AddCommand}"/> 
         <Button Text="View List" Clicked="Button_Clicked"/> -->

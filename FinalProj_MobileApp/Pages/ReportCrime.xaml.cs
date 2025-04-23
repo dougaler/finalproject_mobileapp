@@ -88,29 +88,29 @@ public partial class ReportCrime : ContentPage
             await DisplayAlert("Not Found", $"No record found with ID {crimeId}.", "OK");
         }
     }
-    private async void btnSeedMockData_Clicked(object sender, EventArgs e)
-    {
-        var mockData = CrimeNotificationService.GetMockNotifications();
+    //private async void btnSeedMockData_Clicked(object sender, EventArgs e)
+    //{
+    //    var mockData = CrimeNotificationService.GetMockNotifications();
 
-        foreach (var item in mockData)
-        {
-            var crime = new Crime
-            {
-                Title = item.Title,
-                Description = item.Description,
-                LocationName = item.LocationName,
-                Date = item.Date,
-                Severity = item.Severity,
-                Status = item.Status,
-                Latitude = item.Latitude,
-                Longitude = item.Longitude
-            };
+    //    foreach (var item in mockData)
+    //    {
+    //        var crime = new Crime
+    //        {
+    //            Title = item.Title,
+    //            Description = item.Description,
+    //            LocationName = item.LocationName,
+    //            Date = item.Date,
+    //            Severity = item.Severity,
+    //            Status = item.Status,
+    //            Latitude = item.Latitude,
+    //            Longitude = item.Longitude
+    //        };
 
-            await _localDBService.Create(crime);
-        }
+    //        await _localDBService.Create(crime);
+    //    }
 
-        await DisplayAlert("Success", "Mock data has been inserted into the database.", "OK");
-    }
+    //    await DisplayAlert("Success", "Mock data has been inserted into the database.", "OK");
+    //}
 
     private async void btnClearDatabase_Clicked(object sender, EventArgs e)
     {

@@ -43,5 +43,32 @@ namespace FinalProj_MobileApp.DB
             await _connection.DeleteAsync(crime);
         }
 
+        public async Task SeedMockDataIfEmpty()
+        {
+            var existingCrimes = await GetCrimes();
+            if (existingCrimes != null && existingCrimes.Any())
+            {
+                return;
+            }
+
+            var mockData = CrimeNotificationService.GetMockNotifications();
+            foreach (var item in mockData)
+            {
+                var crime = new Crime
+                {
+                    Title = item.Title,
+                    Description = item.Description,
+                    LocationName = item.LocationName,
+                    Date = item.Date,
+                    Severity = item.Severity,
+                    Status = item.Status,
+                    Latitude = item.Latitude,
+                    Longitude = item.Longitude
+                };
+
+                await Create(crime);
+            }
+        }
+
     }
 }
