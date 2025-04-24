@@ -63,7 +63,7 @@ public partial class ReportCrime : ContentPage
             Longitude = crime.Longitude
         });
 
-        await DisplayAlert("Success", "Crime record saved and notification sent.", "OK");
+        await DisplayAlert("Success", "Crime record saved.", "OK");
 
         ClearFields();
     }
