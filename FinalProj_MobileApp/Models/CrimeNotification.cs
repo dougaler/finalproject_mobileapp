@@ -12,10 +12,9 @@ public class CrimeNotification
     public double Latitude { get; set; }
     public double Longitude { get; set; }
 
-    //Returns a Pin with information set from the CrimeNotification
     public Pin GetMapPin() {
         return new Pin {
-            Label = Title,
+            Label = string.IsNullOrWhiteSpace(Title) ? "Unknown Location" : Title,
             Address = LocationName,
             Location = new Location(Latitude, Longitude),
             Type = PinType.Place

@@ -1,10 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Plugin.LocalNotification;
 
 namespace FinalProj_MobileApp
 {
     public static class CrimeNotificationService
     {
+        public static Task SendNotificationAsync(CrimeNotification notification)
+        {
+            var request = new NotificationRequest
+            {
+                NotificationId = notification.Id,
+                Title = notification.Title,
+                Description = notification.Description,
+                ReturningData = $"crimeId={notification.Id}",
+                Schedule = new NotificationRequestSchedule
+                {
+                    NotifyTime = DateTime.Now
+                }
+            };
+
+            return LocalNotificationCenter.Current.Show(request);
+        }
+
         public static List<CrimeNotification> GetMockNotifications()
         {
             return new List<CrimeNotification>

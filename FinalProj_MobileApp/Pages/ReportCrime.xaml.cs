@@ -50,11 +50,22 @@ public partial class ReportCrime : ContentPage
             await _localDBService.Update(crime);
         }
 
-        await DisplayAlert("Success", "Crime record saved.", "OK");
+        // Update the CrimeNotification object creation in btnSave_Clicked
+        await CrimeNotificationService.SendNotificationAsync(new CrimeNotification
+        {
+            Title = crime.Title,
+            Description = $"A new crime has been reported: {crime.Description}", 
+            LocationName = crime.LocationName,
+            Date = crime.Date,
+            Severity = crime.Severity,
+            Status = crime.Status,
+            Latitude = crime.Latitude,
+            Longitude = crime.Longitude
+        });
 
-        // Clear form fields
+        await DisplayAlert("Success", "Crime record saved and notification sent.", "OK");
+
         ClearFields();
-
     }
 
 
