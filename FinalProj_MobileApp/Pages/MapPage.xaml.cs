@@ -15,12 +15,6 @@ public partial class MapPage : ContentPage
     public MapPage()
 	{
 		InitializeComponent();
-
-		////Currently adds crimes manually, but in the future the CrimeNotifs item will be populated by DB items
-		//CrimeNotifs.Add(new CrimeGroups("Crimes", CrimeNotificationService.GetMockNotifications()));
-
-		////Fills the ListView on the bottom of the page to all the crime objects
-		//LVCrimes.ItemsSource = CrimeNotifs;
 	}
 
     //Populates the map with pins for all of the crimes.
@@ -71,17 +65,6 @@ public partial class MapPage : ContentPage
 		Navigation.PushAsync(new AlertDetails(selectedItems));
 		((CollectionView)sender).SelectedItem = null;
 	}
-
-    //Sends you to AlertDetails when you click on a pin
-	//Currently doesn't work since the pin being clicked is based on the Pin object and not the CrimeNotification object
-	//which is what is sent to the details page, not the Pin
-	// - Anthony
-    private async void OnPinClicked(object sender, PinClickedEventArgs e) {
-        Pin p = (Pin)sender;
-		CrimeNotification activeWatch = new CrimeNotification(); //this is here to prevent an error, and is not intended functionally
-		//this doesn't send you to a new screen, OnPinClicked() may not be the right method for this feature
-        await Navigation.PushAsync(new AlertDetails(activeWatch));
-    }
 
     private async void btnAddCrime_Clicked(object sender, EventArgs e)
     {
